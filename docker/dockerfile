@@ -58,4 +58,7 @@ RUN conda activate my &&\
 
 ENV SHELL=/bin/bash
 RUN ln -sf /bin/bash /bin/sh
+
 RUN rm -rf /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1 /usr/lib/x86_64-linux-gnu/libcuda.so.1
+RUN conda activate my &&\
+    pip install PyOpenGL-accelerate
