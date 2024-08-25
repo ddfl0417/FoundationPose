@@ -17,4 +17,4 @@ docker run --gpus all --env NVIDIA_DISABLE_REQUIRE=1 -it --network=host --name f
   --device=/dev/dri:/dev/dri \
   --device-cgroup-rule "c 81:* rmw" \
   --device-cgroup-rule "c 189:* rmw" \
-  ddfl0417/foundationpose:ubuntu-22.04 bash -c "cd $DIR && bash"
+  ddfl0417/foundationpose:rs bash -c "cd $DIR && bash"
