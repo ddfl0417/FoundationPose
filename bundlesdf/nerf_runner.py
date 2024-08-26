@@ -12,7 +12,9 @@ import shutil
 from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
-import imageio,trimesh
+# import imageio,trimesh
+import imageio.v2 as imageio
+import trimesh
 import json
 import pdb
 import random

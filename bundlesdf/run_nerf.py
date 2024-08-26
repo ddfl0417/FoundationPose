@@ -49,8 +49,8 @@ def run_neural_object_field(cfg, K, rgbs, depths, masks, cam_in_obs, debug=0, sa
 def run_one_ob(base_dir, cfg, use_refined_mask=False):
   save_dir = f'{base_dir}/nerf'
   os.system(f'rm -rf {save_dir} && mkdir -p {save_dir}')
-  with open(f'{base_dir}/select_frames.yml','r') as ff:
-    info = yaml.safe_load(ff)
+  # with open(f'{base_dir}/select_frames.yml','r') as ff:
+  #   info = yaml.safe_load(ff)
   rgbs = []
   depths = []
   masks = []
@@ -75,7 +75,8 @@ def run_one_ob(base_dir, cfg, use_refined_mask=False):
 
 
 def run_ycbv():
-  ob_ids = np.arange(1,22)
+  # ob_ids = np.arange(1,22)
+  ob_ids = np.arange(1,2)
   code_dir = os.path.dirname(os.path.realpath(__file__))
   with open(f'{code_dir}/config_ycbv.yml','r') as ff:
     cfg = yaml.safe_load(ff)
@@ -95,7 +96,8 @@ def run_linemod():
     cfg = yaml.safe_load(ff)
   for ob_id in ob_ids:
     base_dir = f'{args.ref_view_dir}/ob_{ob_id:07d}'
-    mesh = run_one_ob(base_dir=base_dir, cfg=cfg, use_refined_mask=True)
+    # mesh = run_one_ob(base_dir=base_dir, cfg=cfg, use_refined_mask=True)
+    mesh = run_one_ob(base_dir=base_dir, cfg=cfg)
     out_file = f'{base_dir}/model/model.obj'
     os.makedirs(os.path.dirname(out_file), exist_ok=True)
     mesh.export(out_file)
